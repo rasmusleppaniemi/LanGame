@@ -5,23 +5,22 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     public PlayerController playerController;
+    public LayerMask groundLayer; // Define which layers are considered as ground'
+    public float Range;
 
-    private void OnTriggerEnter(Collider other)
+    private void FixedUpdate()
     {
-        if (other.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGrounded(true);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGrounded(false);
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGrounded(true);
+        RaycastHit hit;
+        // Cast a ray downwards from the player's position
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Range, groundLayer))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * Range, Color.green);
+            playerController.SetGrounded(true);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, Vector3.down * Range, Color.red);
+            playerController.SetGrounded(false);
+        }
     }
 }

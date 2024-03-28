@@ -50,18 +50,21 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        Vector3 currentVelocity = rb.velocity;
-        Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
-        targetVelocity *= speed;
+        if (grounded)
+        {
+            Vector3 currentVelocity = rb.velocity;
+            Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+            targetVelocity *= speed;
 
-        targetVelocity = transform.TransformDirection(targetVelocity);
+            targetVelocity = transform.TransformDirection(targetVelocity);
 
-        Vector3 velocityChange = (targetVelocity - currentVelocity);
-        velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
+            Vector3 velocityChange = (targetVelocity - currentVelocity);
+            velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
 
-        Vector3.ClampMagnitude(velocityChange, maxForce);
+            Vector3.ClampMagnitude(velocityChange, maxForce);
 
-        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+            rb.AddForce(velocityChange, ForceMode.VelocityChange);
+        }
     }
 
     void LateUpdate()
