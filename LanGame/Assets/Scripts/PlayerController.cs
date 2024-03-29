@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 move, look;
     private float lookRotation;
     public bool grounded;
+    public LayerMask groundLayer;
+    public float Range;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -34,6 +36,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        RaycastHit hit;
+        // Cast a ray downwards from the player's position
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Range, groundLayer))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * Range, Color.green);
+            grounded = true;
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, Vector3.down * Range, Color.red);
+            grounded = false;
+        }
         Move();
     }
     void Jump()
