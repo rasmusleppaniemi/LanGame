@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584845098}
   m_Layer: 0
-  m_Name: Ability
+  m_Name: AbilityCaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,9 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4257700462063037213}
+  - {fileID: 4532712320653294763}
   m_Father: {fileID: 1741197072782247391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741197072092610519
@@ -479,7 +481,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2784681631281190240}
         m_TargetAssemblyTypeName: PillarAbility, Assembly-CSharp
         m_MethodName: OnPillars
         m_Mode: 0
@@ -493,8 +495,127 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 521ed51a-07f8-4b20-b651-d6b5321405d5
     m_ActionName: Player/Pillars[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4940821883958513263}
+        m_TargetAssemblyTypeName: LandMineAbility, Assembly-CSharp
+        m_MethodName: OnLandMine
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a37cc497-01e8-4e20-ac0b-1606be38730a
+    m_ActionName: Player/LandMineAbility[/Keyboard/q,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1741197072092610475}
+--- !u!1 &3021291981786563398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4257700462063037213}
+  - component: {fileID: 2784681631281190240}
+  m_Layer: 0
+  m_Name: PillarAbility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4257700462063037213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021291981786563398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1584845098}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2784681631281190240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021291981786563398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb350a6f237c11448f42897745a0f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillarPrefab: {fileID: 5522943616388760712, guid: 2ae65a0ab24b67448aeb4a1803163a45,
+    type: 3}
+  abilityCallerTransform: {fileID: 1584845098}
+  spawnDistance: 3
+  numPillars: 3
+  pillarInterval: 2
+  cooldown: 5
+  groundBurstEffect: {fileID: 0}
+  riseSpeed: 1
+  playerController: {fileID: 1741197072782247390}
+  SelectedWeapon: 0
+--- !u!1 &7576778322884055495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4532712320653294763}
+  - component: {fileID: 4940821883958513263}
+  m_Layer: 0
+  m_Name: LandMineAbility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4532712320653294763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576778322884055495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1584845098}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4940821883958513263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576778322884055495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edae645370313f346b4ebe9482fffe9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LandMinePrefab: {fileID: 3978248384673320781, guid: c88be1be0f4273647824264cab058efc,
+    type: 3}
+  abilityCallerTransform: {fileID: 1584845098}
+  SelectedWeapon: 0

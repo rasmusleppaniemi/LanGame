@@ -33,9 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pillars",
+                    "name": "PillarsAbility",
                     "type": "Button",
                     "id": "521ed51a-07f8-4b20-b651-d6b5321405d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LandMineAbility",
+                    "type": "Button",
+                    "id": "a37cc497-01e8-4e20-ac0b-1606be38730a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -248,7 +257,62 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pillars",
+                    "action": "PillarsAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8552f32a-eda9-40bb-bc74-0e50941c3b12",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PillarsAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "040af780-e570-4dd8-aee2-459d5e0bdd2b",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PillarsAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "532a480e-b91e-4f18-acb2-c09562078dc0",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LandMineAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "472bde1f-458a-4530-8e51-8a0c2b3826c7",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LandMineAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19d9f3b4-d18b-44f3-9e31-67c6f3ed53eb",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LandMineAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
