@@ -55,18 +55,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PillarsAbility"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
-                    ""id"": ""521ed51a-07f8-4b20-b651-d6b5321405d5"",
+                    ""id"": ""e51d2ea3-02b6-49c6-ba77-fd2c9a172879"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LandMineAbility"",
+                    ""name"": ""SwitchAbility"",
                     ""type"": ""Button"",
-                    ""id"": ""a37cc497-01e8-4e20-ac0b-1606be38730a"",
+                    ""id"": ""7fbbf230-6d08-48dc-b624-256eede0efd9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -274,67 +274,67 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e4488054-878a-4a91-9b83-d9fdc1e07182"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""ea660ee9-df2a-4224-8097-92261383d110"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PillarsAbility"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8552f32a-eda9-40bb-bc74-0e50941c3b12"",
-                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""id"": ""6e52d08b-c72b-42bf-bd81-cc302334da53"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PillarsAbility"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""040af780-e570-4dd8-aee2-459d5e0bdd2b"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""id"": ""ad13a93c-aba8-4584-b132-c23d420a472b"",
+                    ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PillarsAbility"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""532a480e-b91e-4f18-acb2-c09562078dc0"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""513a6d27-082d-476e-8cc1-ffd18cb935b1"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LandMineAbility"",
+                    ""action"": ""SwitchAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""472bde1f-458a-4530-8e51-8a0c2b3826c7"",
-                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""id"": ""74732587-c78b-476b-af45-f61038268a72"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LandMineAbility"",
+                    ""action"": ""SwitchAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""19d9f3b4-d18b-44f3-9e31-67c6f3ed53eb"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""id"": ""a78c978e-fa55-4c6a-bb35-c6cb2f6409f8"",
+                    ""path"": ""<XInputController>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LandMineAbility"",
+                    ""action"": ""SwitchAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -925,8 +925,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_PillarsAbility = m_Player.FindAction("PillarsAbility", throwIfNotFound: true);
-        m_Player_LandMineAbility = m_Player.FindAction("LandMineAbility", throwIfNotFound: true);
+        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_SwitchAbility = m_Player.FindAction("SwitchAbility", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1003,8 +1003,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_PillarsAbility;
-    private readonly InputAction m_Player_LandMineAbility;
+    private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_SwitchAbility;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1012,8 +1012,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @PillarsAbility => m_Wrapper.m_Player_PillarsAbility;
-        public InputAction @LandMineAbility => m_Wrapper.m_Player_LandMineAbility;
+        public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @SwitchAbility => m_Wrapper.m_Player_SwitchAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1032,12 +1032,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @PillarsAbility.started += instance.OnPillarsAbility;
-            @PillarsAbility.performed += instance.OnPillarsAbility;
-            @PillarsAbility.canceled += instance.OnPillarsAbility;
-            @LandMineAbility.started += instance.OnLandMineAbility;
-            @LandMineAbility.performed += instance.OnLandMineAbility;
-            @LandMineAbility.canceled += instance.OnLandMineAbility;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
+            @SwitchAbility.started += instance.OnSwitchAbility;
+            @SwitchAbility.performed += instance.OnSwitchAbility;
+            @SwitchAbility.canceled += instance.OnSwitchAbility;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1051,12 +1051,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @PillarsAbility.started -= instance.OnPillarsAbility;
-            @PillarsAbility.performed -= instance.OnPillarsAbility;
-            @PillarsAbility.canceled -= instance.OnPillarsAbility;
-            @LandMineAbility.started -= instance.OnLandMineAbility;
-            @LandMineAbility.performed -= instance.OnLandMineAbility;
-            @LandMineAbility.canceled -= instance.OnLandMineAbility;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
+            @SwitchAbility.started -= instance.OnSwitchAbility;
+            @SwitchAbility.performed -= instance.OnSwitchAbility;
+            @SwitchAbility.canceled -= instance.OnSwitchAbility;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1242,8 +1242,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnPillarsAbility(InputAction.CallbackContext context);
-        void OnLandMineAbility(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
+        void OnSwitchAbility(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

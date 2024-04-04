@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4639840271902718430}
   - component: {fileID: 7567455141970826999}
   - component: {fileID: 6804968929401445863}
-  - component: {fileID: -7517860354188547775}
   m_Layer: 0
   m_Name: pillar
   m_TagString: Untagged
@@ -66,7 +65,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cf8d71951128ec344bdd8fb14962f2be, type: 2}
-  - {fileID: 2100000, guid: 613494c803f3fdb40bff6c30fc0a514a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,24 +147,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyAfterTime: 5
---- !u!114 &-7517860354188547775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5522943616388760712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb350a6f237c11448f42897745a0f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pillarPrefab: {fileID: 5522943616388760712}
-  playerTransform: {fileID: 0}
-  spawnDistance: 3
-  numPillars: 3
-  pillarInterval: 2
-  cooldown: 5
-  groundBurstEffect: {fileID: 0}
-  riseSpeed: 1
-  playerController: {fileID: 0}

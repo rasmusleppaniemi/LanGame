@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584845098}
+  - component: {fileID: 4972397671555565120}
   m_Layer: 0
   m_Name: AbilityCaller
   m_TagString: Untagged
@@ -33,6 +34,23 @@ Transform:
   - {fileID: 4532712320653294763}
   m_Father: {fileID: 1741197072782247391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4972397671555565120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584845097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5813e196285ef746a16c826838b5e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedAbility: 0
+  abilitySystem: {fileID: 4972397671555565120}
+  landMineAbility: {fileID: 4940821883958513263}
+  pillarAbility: {fileID: 2784681631281190240}
+  CastingAbility: 0
 --- !u!1 &1741197072092610519
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +288,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 613494c803f3fdb40bff6c30fc0a514a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -481,9 +498,9 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2784681631281190240}
-        m_TargetAssemblyTypeName: PillarAbility, Assembly-CSharp
-        m_MethodName: OnPillars
+      - m_Target: {fileID: 4972397671555565120}
+        m_TargetAssemblyTypeName: AbilitySystem, Assembly-CSharp
+        m_MethodName: OnFire
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -493,13 +510,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 521ed51a-07f8-4b20-b651-d6b5321405d5
-    m_ActionName: Player/Pillars[/Keyboard/e]
+    m_ActionId: e51d2ea3-02b6-49c6-ba77-fd2c9a172879
+    m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4940821883958513263}
-        m_TargetAssemblyTypeName: LandMineAbility, Assembly-CSharp
-        m_MethodName: OnLandMine
+      - m_Target: {fileID: 4972397671555565120}
+        m_TargetAssemblyTypeName: AbilitySystem, Assembly-CSharp
+        m_MethodName: OnAbilitySwitch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -509,8 +526,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: a37cc497-01e8-4e20-ac0b-1606be38730a
-    m_ActionName: Player/LandMineAbility[/Keyboard/q,/XInputControllerWindows/rightShoulder]
+    m_ActionId: 7fbbf230-6d08-48dc-b624-256eede0efd9
+    m_ActionName: Player/SwitchAbility[/Mouse/middleButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -565,12 +582,12 @@ MonoBehaviour:
   abilityCallerTransform: {fileID: 1584845098}
   spawnDistance: 3
   numPillars: 3
-  pillarInterval: 2
-  cooldown: 5
+  pillarInterval: 0.5
+  cooldown: 1
   groundBurstEffect: {fileID: 0}
-  riseSpeed: 1
+  riseSpeed: 5
   playerController: {fileID: 1741197072782247390}
-  SelectedWeapon: 0
+  abilitySystem: {fileID: 4972397671555565120}
 --- !u!1 &7576778322884055495
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edae645370313f346b4ebe9482fffe9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LandMinePrefab: {fileID: 3978248384673320781, guid: c88be1be0f4273647824264cab058efc,
+  LandminePrefab: {fileID: 3978248384673320781, guid: c88be1be0f4273647824264cab058efc,
     type: 3}
   abilityCallerTransform: {fileID: 1584845098}
-  SelectedWeapon: 0
+  LandmineCooldown: 2
+  playerController: {fileID: 1741197072782247390}

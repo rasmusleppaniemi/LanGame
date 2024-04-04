@@ -6,7 +6,7 @@ public class LandMine : MonoBehaviour
     public bool armed = false;
     [SerializeField] float ArmTime;
     ThrowingObjects ThrowingObjectsScript;
-    public GameObject landMinePrefab;
+
     public IEnumerator Start()
     {
         yield return new WaitForSeconds(ArmTime);

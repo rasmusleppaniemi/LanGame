@@ -14,18 +14,17 @@ public class PillarAbility : MonoBehaviour
     public ParticleSystem groundBurstEffect;
     public float riseSpeed = 1f;
     public PlayerController playerController;
-    public bool SelectedWeapon;
+    public AbilitySystem abilitySystem;
 
-    public void OnPillars(InputAction.CallbackContext context)
+    public void OnPillar(InputAction.CallbackContext context)
     {
-        if (!isCooldown && playerController.grounded && SelectedWeapon)
+        if (!isCooldown && playerController.grounded)
         {
             StartCoroutine(StartCooldown());
             StartCoroutine(ActivatePillarsWithDelay());
         }
         else
         {
-
             Debug.Log("Ability on cooldown!");
         }
     }
@@ -33,35 +32,29 @@ public class PillarAbility : MonoBehaviour
     IEnumerator StartCooldown()
     {
         isCooldown = true;
-
         yield return new WaitForSeconds(cooldown);
-
         isCooldown = false;
     }
 
     IEnumerator ActivatePillarsWithDelay()
     {
-        if (abilityCallerTransform == null)
-        {
-            Debug.LogError("Player transform not assigned to PillarAbility script.");
-            yield break;
-        }
+        abilitySystem.CastingAbility = true;
 
         Vector3 spawnDirection = abilityCallerTransform.forward;
-
         Vector3 spawnPosition = abilityCallerTransform.position + spawnDirection * spawnDistance;
         spawnPosition -= Vector3.up * 10f;
 
         for (int i = 0; i < numPillars; i++)
         {
             GameObject pillar = Instantiate(pillarPrefab, spawnPosition, Quaternion.identity);
-
             spawnPosition += spawnDirection * (spawnDistance + pillarInterval);
-
             StartCoroutine(RisePillar(pillar.transform));
-
             yield return new WaitForSeconds(0.2f);
         }
+
+        yield return new WaitForSeconds(0.8f);
+        abilitySystem.CastingAbility = false;
+
         if (groundBurstEffect != null)
         {
             groundBurstEffect.Play();
@@ -71,7 +64,6 @@ public class PillarAbility : MonoBehaviour
     IEnumerator RisePillar(Transform pillarTransform)
     {
         float initialY = pillarTransform.position.y;
-
         float targetY = pillarTransform.position.y + 10f;
 
         Rigidbody rb = pillarTransform.GetComponent<Rigidbody>();
@@ -86,6 +78,7 @@ public class PillarAbility : MonoBehaviour
             pillarTransform.position = new Vector3(pillarTransform.position.x, newY, pillarTransform.position.z);
             yield return null;
         }
+
         rb.isKinematic = false;
     }
 }

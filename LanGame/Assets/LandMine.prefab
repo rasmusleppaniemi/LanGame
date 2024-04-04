@@ -130,6 +130,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8164242523054647923}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 703b1e268a2dcbc4e9a6ffc136489717,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9219959098336910398}
   m_SourcePrefab: {fileID: 100100000, guid: 703b1e268a2dcbc4e9a6ffc136489717, type: 3}
 --- !u!1 &3978248384673320781 stripped
 GameObject:
@@ -188,6 +192,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 50
+--- !u!114 &-9219959098336910398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978248384673320781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895cebcf55f79074b8fb396d061f2023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armed: 0
+  ArmTime: 2
 --- !u!137 &8212608319383939598 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -3887185075125053422, guid: 703b1e268a2dcbc4e9a6ffc136489717,
