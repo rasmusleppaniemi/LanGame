@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     public LayerMask groundLayer;
     public float Range;
-
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
