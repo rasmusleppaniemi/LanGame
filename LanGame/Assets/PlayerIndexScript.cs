@@ -5,6 +5,7 @@ public class PlayerIndexScript : MonoBehaviour
 {
     [SerializeField] private static int playerIndex = 0; // Default player index
     private TextMeshPro playerNameText;
+    public int playerCount;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class PlayerIndexScript : MonoBehaviour
         playerIndex = index;
         UpdatePlayerName();
         playerIndex++;
+        playerCount++;
     }
 
     // Method to get the player index

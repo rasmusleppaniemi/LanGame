@@ -25,9 +25,5 @@ public class RotateText : MonoBehaviour
             // Apply the rotation
             transform.rotation = targetRotation;
         }
-        else
-        {
-            Debug.LogWarning("RotateTextAwayFromSecondNearestCamera: There are not enough cameras in the scene!");
-        }
     }
 }

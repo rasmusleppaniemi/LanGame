@@ -65,8 +65,6 @@ public class AbilitySystem : MonoBehaviour
             return;
         }
 
-        Debug.Log("SelectAbility: " + SelectedAbility);
-
         int i = 0;
         foreach (Transform ability in transform)
         {

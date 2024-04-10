@@ -23,10 +23,6 @@ public class PillarAbility : MonoBehaviour
             StartCoroutine(StartCooldown());
             StartCoroutine(ActivatePillarsWithDelay());
         }
-        else
-        {
-            Debug.Log("Ability on cooldown!");
-        }
     }
 
     IEnumerator StartCooldown()
