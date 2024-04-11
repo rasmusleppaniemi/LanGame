@@ -20,6 +20,7 @@ public class GameReadyManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(CheckPlayers());
+        UpdateCountdownText();
     }
     public void Update()
     {
@@ -76,7 +77,14 @@ public class GameReadyManager : MonoBehaviour
     {
         if (countdownText != null)
         {
-            countdownText.text = currentCountdown.ToString();
+            if(!ready)
+            {
+                countdownText.text = "Not Enough Players";
+            }
+            else
+            {
+                countdownText.text = currentCountdown.ToString();
+            }
         }
     }
 
@@ -89,6 +97,7 @@ public class GameReadyManager : MonoBehaviour
 
     void TeleportPlayers(GameObject[] players)
     {
+        countdownText.gameObject.SetActive(false);
         foreach (GameObject player in players)
         {
             float randomX = Random.Range(minX, maxX);
