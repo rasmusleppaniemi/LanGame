@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPoints : MonoBehaviour
@@ -13,7 +11,6 @@ public class PlayerPoints : MonoBehaviour
         {
             Points++;
 
-            // Destroy the object with the "Point" tag
             Destroy(other.gameObject);
         }
     }

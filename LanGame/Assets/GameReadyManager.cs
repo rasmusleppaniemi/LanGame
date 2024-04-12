@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameReadyManager : MonoBehaviour
 {
     public PointSpawner pointSpawner;
+    public List<PlayerPoints> playerPoints;
     public int minPlayers;
     public bool ready;
     public float countdownDuration = 5f;
@@ -16,11 +18,13 @@ public class GameReadyManager : MonoBehaviour
     public float maxZ = 20f;
 
     public TextMeshProUGUI countdownText;
+    public GameObject endScreen;
 
     private void Start()
     {
         StartCoroutine(CheckPlayers());
         UpdateCountdownText();
+        endScreen.SetActive(false);
     }
     public void Update()
     {
@@ -38,6 +42,14 @@ public class GameReadyManager : MonoBehaviour
             foreach (GameObject playerObject in players)
             {
                 PlayerIndexScript playerIndexScript = playerObject.GetComponent<PlayerIndexScript>();
+                PlayerPoints playerPointsScript = playerObject.GetComponent<PlayerPoints>();
+
+                if (playerIndexScript != null && playerPointsScript != null && !playerPoints.Contains(playerPointsScript))
+                {
+                    // Add the PlayerPoints script to the playerPoints list
+                    playerPoints.Add(playerPointsScript);
+                }
+
                 if (playerIndexScript != null)
                 {
                     playersReady++;
@@ -94,7 +106,22 @@ public class GameReadyManager : MonoBehaviour
         TeleportPlayers(players);
         pointSpawner.ActivateCoroutine();
     }
+    public void EndGame()
+    {
+        DisplayEndScreen();
+    }
 
+    private void DisplayEndScreen()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerObject in players)
+        {
+            PlayerPoints playerPoints = playerObject.GetComponent<PlayerPoints>();
+            PlayerIndexScript playerIndexScript = playerObject.GetComponent<PlayerIndexScript>();
+            endScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
     void TeleportPlayers(GameObject[] players)
     {
         countdownText.gameObject.SetActive(false);

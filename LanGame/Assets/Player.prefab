@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 1045041976}
   - component: {fileID: 5680797695186398167}
   - component: {fileID: 8401800989357345310}
-  - component: {fileID: 7835626773869264496}
+  - component: {fileID: 6876245227784499179}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -851,7 +851,7 @@ MonoBehaviour:
   - {r: 0.7924528, g: 0.3976615, b: 0, a: 0}
   - {r: 0, g: 0.73424315, b: 1, a: 0}
   - {r: 0.58306885, g: 0, b: 1, a: 0}
---- !u!114 &7835626773869264496
+--- !u!114 &6876245227784499179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -864,7 +864,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Points: 0
-  MaxPoints: 50
+  MaxPoints: 0
+  gameManager: {fileID: 0}
 --- !u!1 &3021291981786563398
 GameObject:
   m_ObjectHideFlags: 0
