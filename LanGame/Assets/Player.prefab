@@ -830,7 +830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1fbd2c0a8887d4985cf854c2993f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCount: 0
 --- !u!114 &8401800989357345310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,9 +862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502ef95ec2b4a51418d729e09c618e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 0
-  MaxPoints: 0
-  gameManager: {fileID: 0}
+  points: 0
+  maxPoints: 5
+  playerName: 
+  gameReadyManager: {fileID: 0}
 --- !u!1 &3021291981786563398
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +915,7 @@ MonoBehaviour:
   abilityCallerTransform: {fileID: 1584845098}
   spawnDistance: 3
   numPillars: 3
-  pillarInterval: 0.5
+  pillarInterval: 0.8
   cooldown: 1
   groundBurstEffect: {fileID: 0}
   riseSpeed: 5

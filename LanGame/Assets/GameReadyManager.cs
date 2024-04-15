@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq; // Added for sorting functionality
 
 public class GameReadyManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GameReadyManager : MonoBehaviour
 
     public TextMeshProUGUI countdownText;
     public GameObject endScreen;
+    public TextMeshProUGUI endScreenText; // Added for displaying player names and points
 
     private void Start()
     {
@@ -26,10 +28,12 @@ public class GameReadyManager : MonoBehaviour
         UpdateCountdownText();
         endScreen.SetActive(false);
     }
+
     public void Update()
     {
         CheckPlayers();
     }
+
     private IEnumerator CheckPlayers()
     {
         while (!ready)
@@ -89,7 +93,7 @@ public class GameReadyManager : MonoBehaviour
     {
         if (countdownText != null)
         {
-            if(!ready)
+            if (!ready)
             {
                 countdownText.text = "Not Enough Players";
             }
@@ -106,6 +110,7 @@ public class GameReadyManager : MonoBehaviour
         TeleportPlayers(players);
         pointSpawner.ActivateCoroutine();
     }
+
     public void EndGame()
     {
         DisplayEndScreen();
@@ -113,15 +118,21 @@ public class GameReadyManager : MonoBehaviour
 
     private void DisplayEndScreen()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject playerObject in players)
+        Debug.Log("Display EndScreen");
+
+        List<PlayerPoints> sortedPlayers = playerPoints.OrderByDescending(p => p.points).ToList();
+
+        string endScreenInfo = "End of Game\n\n";
+        foreach (PlayerPoints player in sortedPlayers)
         {
-            PlayerPoints playerPoints = playerObject.GetComponent<PlayerPoints>();
-            PlayerIndexScript playerIndexScript = playerObject.GetComponent<PlayerIndexScript>();
-            endScreen.SetActive(true);
-            Time.timeScale = 0f;
+            endScreenInfo += $"{player.playerName}: {player.points} points\n";
         }
+
+        endScreenText.text = endScreenInfo;
+        endScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
+
     void TeleportPlayers(GameObject[] players)
     {
         countdownText.gameObject.SetActive(false);

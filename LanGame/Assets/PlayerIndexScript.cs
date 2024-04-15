@@ -3,13 +3,13 @@ using TMPro;
 
 public class PlayerIndexScript : MonoBehaviour
 {
-    [SerializeField] private static int playerIndex = 0; // Default player index
+    private static int playerCount = 0;
     private TextMeshPro playerNameText;
-    public int playerCount;
+    private int playerIndex;
+    private PlayerPoints playerPoints; // Reference to PlayerPoints script
 
     private void Awake()
     {
-        // Get the TextMeshPro component attached to this GameObject
         playerNameText = GetComponentInChildren<TextMeshPro>();
         if (playerNameText == null)
         {
@@ -17,32 +17,24 @@ public class PlayerIndexScript : MonoBehaviour
         }
         else
         {
-            SetPlayerIndex(playerIndex);
+            playerIndex = ++playerCount;
             UpdatePlayerName();
         }
+
+        playerPoints = GetComponent<PlayerPoints>(); // Get reference to PlayerPoints script
     }
 
-    // Method to set the player index
-    public void SetPlayerIndex(int index)
-    {
-        playerIndex = index;
-        UpdatePlayerName();
-        playerIndex++;
-        playerCount++;
-    }
-
-    // Method to get the player index
-    public int GetPlayerIndex()
-    {
-        return playerIndex;
-    }
-
-    // Method to update the displayed player name based on the player index
     private void UpdatePlayerName()
     {
         if (playerNameText != null)
         {
             playerNameText.text = "Player " + playerIndex;
+        }
+
+        // Set player name in PlayerPoints script
+        if (playerPoints != null)
+        {
+            playerPoints.playerName = playerNameText.text;
         }
     }
 }
